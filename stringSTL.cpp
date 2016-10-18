@@ -24,6 +24,7 @@ int main()
     cout<<endl<<"Now in reverse order"<<endl;
     for(string::reverse_iterator revWalker = str.rbegin()   ;   revWalker != str.rend() ;   revWalker++)    //Notice Incrementing the reverse pointer
         cout<<*revWalker;
-    cout<<endl<<"Had you seen it this way, looks great !!!";
+    cout<<endl<<"Had you seen it this way, looks great !!!"<<endl;
+    cout<<"Astrology says people with name starting in "<<"\""<<(char)toupper(str.at(0))<<"\""<<" are found to be lucky.";
     return 0;
 }
