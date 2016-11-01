@@ -18,6 +18,7 @@
 using namespace std;
 
 int lonelyinteger(vector < int > a) {
+    /*
     int arr[101] = {2};
     std::fill(arr, arr + 101, 2);
     int pos = -1;
@@ -25,13 +26,13 @@ int lonelyinteger(vector < int > a) {
     {
         arr[a[i]] -= 1;
     }
-    /*
+    /*  -> Start of multiple line comment (Inner)
     for (const int& i : a)
     {
         if(arr[i] == 1)
             pos = &i - &arr[0];
     }
-    */
+    //  -> This multiple line comment (Inner) ends here
     for(int i = 0 ; i < 100 ; i++)
     {
         if(arr[i] == 1)
@@ -39,7 +40,13 @@ int lonelyinteger(vector < int > a) {
     }
 
 return pos;
+*/
+    //More efficient with XOR operation
+    int xord = 0;
+    for(int i = 0 ; i < a.size() ; i++)
+        xord = xord ^ a[i];
 
+    return xord;
 }
 
 int main() {
