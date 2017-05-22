@@ -5,7 +5,7 @@ char* conv(char* , char*, char*);
 int main()
 {
     char *output;
-    char *input1 = "10:10:10";
+    char *input1 = "10:10:64";
     char *input2 = "10:49:64";
     output = (char *)malloc(sizeof(int)*20);
     output = conv(input1, input2, output);
