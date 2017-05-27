@@ -18,12 +18,18 @@ int main()
     {
         num[i] = rand();
     }
+    cout<<"\nInput Array\n";
+    for(int i = 0 ; i < len ; i++)
+    {
+        cout<<"\n"<<num[i];
+    }
 
     //len_arr = ( sizeof(num) / sizeof(num[0]) );
     len_arr = len;
 
     bubbleSort(num, len_arr,hop);
 
+    cout<<"\n\nSorted\n";
     for(int i = 0 ; i < len ; i++)
     {
         cout<<"\n"<<num[i];
