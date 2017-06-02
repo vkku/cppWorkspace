@@ -15,6 +15,7 @@ void createNode(node** head, node** current);
 void traverse(node* head);
 void delPos(node** head, node** current);
 void insPos(node** head, node** current);
+void revll(node** head);
 
 int main()
 {
@@ -46,6 +47,9 @@ int main()
             case    4   :   delPos(&head, &current);
                             break;
 
+            case    5   :   revll(&head);
+                            break;
+
             case    0   :   cout<<"\nExit";
                             break;
 
@@ -70,6 +74,7 @@ void printMenu()
     cout<<"\n[ 2  ]        Insert Element at any position\n";
     cout<<"\n[ 3  ]        Display Elements\n";
     cout<<"\n[ 4  ]        Delete Element at any position\n";
+    cout<<"\n[ 5  ]        Reverse Linked List\n";
     cout<<"\n[ 99 ]        To print this menu again any time later\n";
     cout<<"\n[ 0  ]        Exit\n";
 }
@@ -86,6 +91,7 @@ void createNode(node** head, node** current)
     {
         *head = temp;
         *current = *head;
+        (*head) -> next = NULL;
     }
     else
     {
@@ -207,12 +213,38 @@ void insPos(node** head, node** current)
 
 }
 
+void revll(node** head)
+{
+    node* pred;
+    node* succ;
+    node* curr;
+    node* save;
 
+    pred = *head;
+    curr = (*head) -> next;
+    succ = curr -> next;
 
+    save = pred;
 
+    while(succ != NULL)
+    {
 
+        //Change Links ( -> to <- )
+        curr -> next = pred;
 
+        //Update pointers
+        pred = curr;
+        curr = succ;
+        succ = succ -> next;
 
+        cout<<"\nCount as one";
+    }
+
+    curr -> next = pred;
+    save -> next = NULL;
+    *head = curr;
+
+}
 
 
 
