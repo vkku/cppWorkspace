@@ -15,7 +15,7 @@ void createNode(node** head, node** current);
 void traverse(node* head);
 void delPos(node** head, node** current);
 void insPos(node** head, node** current);
-void revll(node** head);
+void revll(node** head, node** current);
 
 int main()
 {
@@ -47,7 +47,7 @@ int main()
             case    4   :   delPos(&head, &current);
                             break;
 
-            case    5   :   revll(&head);
+            case    5   :   revll(&head, &current);
                             break;
 
             case    0   :   cout<<"\nExit";
@@ -86,6 +86,7 @@ void createNode(node** head, node** current)
     temp = (node* )malloc(sizeof(node));
     cout<<"\nEnter Data\n";
     cin>>temp -> info;
+    temp -> next = NULL;        //Extra layer of protection
 
     if(*head == NULL)
     {
@@ -213,7 +214,7 @@ void insPos(node** head, node** current)
 
 }
 
-void revll(node** head)
+void revll(node** head, node** current)
 {
     node* pred;
     node* succ;
@@ -222,9 +223,21 @@ void revll(node** head)
 
     pred = *head;
     curr = (*head) -> next;
-    succ = curr -> next;
+    if(curr != NULL)
+    {
+        succ = curr -> next;
+    }
 
     save = pred;
+
+    //Check for single element
+    if(curr == NULL)
+    {
+        succ = NULL;
+    }
+
+    //Change current pointer as to facilitate insertion after reversal
+    *current = pred;
 
     while(succ != NULL)
     {
@@ -236,13 +249,14 @@ void revll(node** head)
         pred = curr;
         curr = succ;
         succ = succ -> next;
-
-        cout<<"\nCount as one";
+    }
+    if(curr != NULL)                //Check in case of single node
+    {
+        curr -> next = pred;        //Linking the last node
+        save -> next = NULL;        //to facilitate printing of LL
+        *head = curr;               //The new LL starts from back now
     }
 
-    curr -> next = pred;
-    save -> next = NULL;
-    *head = curr;
 
 }
 
