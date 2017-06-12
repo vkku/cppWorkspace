@@ -22,9 +22,6 @@ int main()
     node* head = NULL;
     node* current = head;
 
-    //head = (node* )malloc(sizeof(node));
-    //current = (node* )malloc(sizeof(node));
-
 
 
     int ch = 0;
@@ -81,6 +78,7 @@ void printMenu()
     cout<<"\n[ 6  ]        Reverse Linked List\n";
     cout<<"\n[ 99 ]        To print this menu again any time later\n";
     cout<<"\n[ 0  ]        Exit\n";
+    cout<<"\n***************************************************************************";
 }
 
 void createNode(node** head, node** current)
@@ -128,7 +126,7 @@ void traverse(node* head)
 /*
 ToDo
 1. Check for invalid position input
-
+2. Particularly end position
 */
 void delPos(node** head, node** current)
 {
