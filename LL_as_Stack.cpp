@@ -9,8 +9,8 @@ struct node
     int info;
 };
 
-void insertFIFO(node** head);
-void deleteFIFO(node** head);
+void push(node** head);
+void pop(node** head);
 void printList(node** head);
 void printMenu();
 
@@ -26,9 +26,9 @@ int main()
         cin>>ch;
         switch(ch)
         {
-            case            1       :   insertFIFO(&head);
+            case            1       :   push(&head);
                                         break;
-            case            2       :   deleteFIFO(&head);
+            case            2       :   pop(&head);
                                         break;
             case            3       :   printList(&head);
                                         break;
@@ -59,7 +59,7 @@ void printMenu()
 /*
 ToDo    :   Make available a max cap for entering elements
 */
-void insertFIFO(node** head)
+void push(node** head)
 {
     node* temp = (node*)malloc(sizeof(node));
     cout<<"\nEnter Element\n";
@@ -77,7 +77,7 @@ void insertFIFO(node** head)
     return;
 }
 
-void deleteFIFO(node** head)
+void pop(node** head)
 {
     if(*head == NULL)
     {
@@ -111,7 +111,7 @@ void printList(node** head)
     {
      while(temp != NULL)
      {
-        cout<<"\n"<<temp -> info;
+        cout<<"\n\t| "<<temp -> info<<"\t|";
         temp = temp -> next;
      }
     }
