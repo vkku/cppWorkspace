@@ -140,6 +140,7 @@ void delPos(node** head, node** current)
 
     if(pos == 1)
     {
+        free(pred);
         *head = (*head) -> next;
     }
     else
