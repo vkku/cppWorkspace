@@ -1,2 +1,2 @@
 # cppWorkspace
-My workspace for programs in C++ language
+My workspace for programs in C / C++ language
